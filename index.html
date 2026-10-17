@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesotho Trails | Home</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f5ef;
+            color: #25352c;
+        }
+
+        .navbar {
+            background-color: #25352c;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: white !important;
+        }
+
+        .nav-link:hover {
+            color: #d6b77a !important;
+        }
+
+        .hero {
+            background: linear-gradient(#0005, #0006), url("maluti.jpg");
+            background-size: cover;
+            background-position: center;
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 19px;
+        }
+
+        .section {
+            padding: 50px 20px;
+        }
+
+        .card {
+            border: none;
+            height: 100%;
+            box-shadow: 0 4px 12px #00000018;
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .btn-custom {
+            background-color: #25352c;
+            color: white;
+            padding: 10px 22px;
+        }
+
+        .btn-custom:hover {
+            background-color: #d6b77a;
+            color: #25352c;
+        }
+
+        footer {
+            background-color: #25352c;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero {
+                min-height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">LT | Lesotho Trails</a>
+
+        <button class="navbar-toggler bg-light" type="button"
+            data-bs-toggle="collapse" data-bs-target="#menu">
+            ☰
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                <li class="nav-item"><a class="nav-link" href="accommodation.html">Stay</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="booking.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div>
+        <p>The Mountain Kingdom · Southern Africa</p>
+        <h1>Find Your High Place</h1>
+        <p>Discover Lesotho's mountains, waterfalls, culture and unforgettable adventures.</p>
+        <a href="destinations.html" class="btn btn-light mt-3">Explore Destinations</a>
+    </div>
+</header>
+
+<section class="section container">
+    <h2 class="text-center mb-3">Welcome to Lesotho</h2>
+    <p class="text-center mb-5">
+        Lesotho is a beautiful mountain kingdom filled with dramatic landscapes,
+        traditional heritage and welcoming communities. Explore some of its
+        remarkable attractions with Lesotho Trails.
+    </p>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="river days.jpg" alt="Waterfall and mountain scenery">
+                <div class="card-body">
+                    <h4>Natural Wonders</h4>
+                    <p>Explore waterfalls, rivers, valleys and breathtaking highland scenery.</p>
+                    <a href="destinations.html" class="btn btn-custom">Discover More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="image 3.jpg" alt="Traditional stone buildings with thatched roofs">
+                <div class="card-body">
+                    <h4>Basotho Heritage</h4>
+                    <p>Learn about traditional buildings, local culture and the history of Lesotho.</p>
+                    <a href="about.html" class="btn btn-custom">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="pony trekking.jpg" alt="Pony trekking in the mountains">
+                <div class="card-body">
+                    <h4>Outdoor Adventures</h4>
+                    <p>Enjoy pony trekking, hiking, sightseeing and mountain journeys.</p>
+                    <a href="activities.html" class="btn btn-custom">View Activities</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section text-center" style="background-color: #e9e6dc;">
+    <div class="container">
+        <h2>Plan Your Lesotho Adventure</h2>
+        <p>Explore destinations, find accommodation and start planning your visit.</p>
+        <a href="booking.html" class="btn btn-custom">Contact Us</a>
+    </div>
+</section>
+
+<footer>
+    <p>© <span id="year"></span> Lesotho Trails. Explore responsibly.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

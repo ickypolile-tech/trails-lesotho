@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Lesotho Trails</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { margin: 0; background: #f7f5ef; font-family: Arial, sans-serif; color: #25352c; }
+        .navbar, footer { background: #25352c; }
+        .navbar-brand, .nav-link { color: white !important; }
+        .nav-link:hover { color: #d6b77a !important; }
+        .hero { background: #25352c; color: white; text-align: center; padding: 65px 20px; }
+        .content { padding: 40px 20px; }
+
+        .item .card { border: none; border-radius: 8px; overflow: hidden; background: white; box-shadow: 0 4px 12px #00000015; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
+        .item .card:hover { transform: translateY(-4px); box-shadow: 0 8px 18px #00000025; }
+        .item .card:focus-visible { outline: 3px solid #d6b77a; outline-offset: 2px; }
+        .picture { width: 100%; height: 230px; object-fit: cover; display: block; }
+        .card-body span { display: inline-block; font-size: .8rem; font-weight: bold; color: #8a6d2f; margin-bottom: 4px; }
+        .card-body h2 { font-size: 1.15rem; font-weight: bold; margin: 0 0 6px; color: #25352c; }
+        .card-body p { font-size: .95rem; margin: 0; color: #4a5a50; }
+
+        footer { color: white; text-align: center; padding: 20px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .item .card { transition: none; }
+            .item .card:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">LT | Lesotho Trails</a>
+        <button class="navbar-toggler bg-light" data-bs-toggle="collapse" data-bs-target="#menu">☰</button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                <li class="nav-item"><a class="nav-link" href="accommodation.html">Stay</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="booking.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Lesotho Photo Gallery</h1>
+    <p>Enjoy the beauty of the Mountain Kingdom through these photographs.</p>
+</header>
+
+<section class="content container">
+    <h2 class="text-center mb-4">Our Photo Collection</h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="gallery"></div>
+    <p class="text-center mt-4" id="caption" aria-live="polite">Select a photograph to see its caption.</p>
+</section>
+
+<footer>
+    <p>© <span id="year"></span> Lesotho Trails</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const photos = [
+        {category: "Stay",      name: "Traditional Stone Lodges", text: "Botha-Bothe: stone lodges in the highlands.", image: "Botha-Bothe.jpg"},
+        {category: "Scenery",   name: "Mountain Valley",          text: "A quiet valley below the peaks.",             image: "image 1.jpg"},
+        {category: "Scenery",   name: "Highland Scenery",         text: "Open highland views across the mountains.",   image: "image 2.jpg"},
+        {category: "Culture",   name: "Traditional Buildings",    text: "Local buildings in the Basotho style.",       image: "image 3.jpg"},
+        {category: "Stay",      name: "Mountain Accommodation",   text: "Rest stop with a mountain backdrop.",         image: "image 4.JPG"},
+        {category: "Stay",      name: "Thatched Lodges",          text: "Thatched-roof lodges for overnight stays.",   image: "image 5.jpg"},
+        {category: "Stay",      name: "Countryside Retreat",      text: "A peaceful countryside getaway.",             image: "image 6.jpg"},
+        {category: "Stay",      name: "Lodge and Gardens",        text: "Lodge surrounded by green gardens.",          image: "image 7.jpg"},
+        {category: "Scenery",   name: "Waterfall Scenery",        text: "Water tumbling through the rock.",            image: "river days.jpg"},
+        {category: "Scenery",   name: "Mountain Landscape",       text: "The Maluti mountains at their best.",         image: "maluti.jpg"},
+        {category: "Scenery",   name: "Highland Views",           text: "Mokhotlong: high, wide, and remote.",         image: "mokhotlong.jpg"},
+        {category: "Adventure", name: "Mountain Travel",          text: "Camping and travel along the pass.",          image: "pass camp.jpg"},
+        {category: "Adventure", name: "Pony Trekking",            text: "Explore the trails on horseback.",            image: "pony trekking.jpg"},
+        {category: "Scenery",   name: "Lesotho Landscape",        text: "The Mountain Kingdom, in one frame.",         image: "image.jpg"}
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    photos.forEach(photo => {
+        gallery.innerHTML += `
+            <div class="col item">
+                <div class="card h-100" tabindex="0" role="button" data-name="${photo.name}">
+                    <img src="${photo.image}" class="picture" alt="${photo.name}" loading="lazy">
+                    <div class="card-body">
+                        <span>${photo.category}</span>
+                        <h2>${photo.name}</h2>
+                        <p>${photo.text}</p>
+                    </div>
+                </div>
+            </div>`;
+    });
+
+    function showCaption(name) {
+        document.getElementById("caption").textContent = "Photo selected: " + name;
+    }
+
+    gallery.addEventListener("click", e => {
+        const card = e.target.closest(".card");
+        if (card) showCaption(card.dataset.name);
+    });
+
+    gallery.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+            const card = e.target.closest(".card");
+            if (card) { e.preventDefault(); showCaption(card.dataset.name); }
+        }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
